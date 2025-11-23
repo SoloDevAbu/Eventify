@@ -1,0 +1,10 @@
+{
+  "name": "track-be",
+  "version": "1.0.0",
+  "main": "./dist/server.js",
+  "type": "module",
+  "license": "MIT",
+  "dependencies": {
+    "@eventify/db": "*"
+  }
+}
