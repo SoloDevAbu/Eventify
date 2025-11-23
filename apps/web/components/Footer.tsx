@@ -5,39 +5,36 @@ import { Github, Twitter, Linkedin } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-[#0b0c15] pt-16 pb-8">
+    <footer className="border-t border-[var(--card-border)] bg-[var(--background)] pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
           <div className="col-span-2 md:col-span-1">
             <Link
               href="/"
-              className="text-2xl font-bold tracking-tighter mb-4 block"
+              className="text-xl font-bold tracking-tight text-[var(--foreground)] mb-4 block"
             >
-              <span className="text-white">Pulse</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
-                Flow
-              </span>
+              Eventify
             </Link>
-            <p className="text-gray-400 text-sm mb-6">
-              Real-time analytics for the modern web. Built for developers, by
-              developers.
+            <p className="text-[var(--muted-foreground)] text-sm mb-6">
+              The open-source customer data platform for developers.
             </p>
             <div className="flex space-x-4">
               <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors"
+                href="https://github.com/eventify"
+                target="_blank"
+                className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
               >
                 <Github className="w-5 h-5" />
               </a>
               <a
                 href="#"
-                className="text-gray-400 hover:text-cyan-400 transition-colors"
+                className="text-[var(--muted)] hover:text-blue-400 transition-colors"
               >
                 <Twitter className="w-5 h-5" />
               </a>
               <a
                 href="#"
-                className="text-gray-400 hover:text-blue-500 transition-colors"
+                className="text-[var(--muted)] hover:text-blue-600 transition-colors"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
@@ -45,122 +42,96 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-white mb-4">Product</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
+            <h4 className="font-semibold text-[var(--foreground)] mb-4">
+              Product
+            </h4>
+            <ul className="space-y-2 text-sm text-[var(--muted-foreground)]">
               <li>
                 <Link
-                  href="#"
-                  className="hover:text-cyan-400 transition-colors"
+                  href="/docs"
+                  className="hover:text-[var(--foreground)] transition-colors"
                 >
-                  Features
+                  Documentation
                 </Link>
               </li>
               <li>
                 <Link
-                  href="#"
-                  className="hover:text-cyan-400 transition-colors"
+                  href="/api"
+                  className="hover:text-[var(--foreground)] transition-colors"
+                >
+                  API Reference
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/integrations"
+                  className="hover:text-[var(--foreground)] transition-colors"
                 >
                   Integrations
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="hover:text-cyan-400 transition-colors"
-                >
-                  Pricing
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="hover:text-cyan-400 transition-colors"
-                >
-                  Changelog
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="hover:text-cyan-400 transition-colors"
-                >
-                  Docs
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-semibold text-white mb-4">Company</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
+            <h4 className="font-semibold text-[var(--foreground)] mb-4">
+              Company
+            </h4>
+            <ul className="space-y-2 text-sm text-[var(--muted-foreground)]">
               <li>
                 <Link
-                  href="#"
-                  className="hover:text-cyan-400 transition-colors"
+                  href="/about"
+                  className="hover:text-[var(--foreground)] transition-colors"
                 >
                   About
                 </Link>
               </li>
               <li>
                 <Link
-                  href="#"
-                  className="hover:text-cyan-400 transition-colors"
+                  href="/blog"
+                  className="hover:text-[var(--foreground)] transition-colors"
                 >
                   Blog
                 </Link>
               </li>
               <li>
                 <Link
-                  href="#"
-                  className="hover:text-cyan-400 transition-colors"
+                  href="/careers"
+                  className="hover:text-[var(--foreground)] transition-colors"
                 >
                   Careers
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="hover:text-cyan-400 transition-colors"
-                >
-                  Contact
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-semibold text-white mb-4">Legal</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
+            <h4 className="font-semibold text-[var(--foreground)] mb-4">
+              Legal
+            </h4>
+            <ul className="space-y-2 text-sm text-[var(--muted-foreground)]">
               <li>
                 <Link
-                  href="#"
-                  className="hover:text-cyan-400 transition-colors"
+                  href="/privacy"
+                  className="hover:text-[var(--foreground)] transition-colors"
                 >
-                  Privacy Policy
+                  Privacy
                 </Link>
               </li>
               <li>
                 <Link
-                  href="#"
-                  className="hover:text-cyan-400 transition-colors"
+                  href="/terms"
+                  className="hover:text-[var(--foreground)] transition-colors"
                 >
-                  Terms of Service
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="hover:text-cyan-400 transition-colors"
-                >
-                  Cookie Policy
+                  Terms
                 </Link>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/5 text-center text-sm text-gray-500">
-          © {new Date().getFullYear()} PulseFlow Inc. All rights reserved.
+        <div className="pt-8 border-t border-[var(--card-border)] text-center text-sm text-[var(--muted)]">
+          © {new Date().getFullYear()} Eventify. Open Source.
         </div>
       </div>
     </footer>

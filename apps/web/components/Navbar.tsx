@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, Github, Book, Code2 } from "lucide-react";
+import { ThemeToggle } from "./ThemeToggle";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -10,7 +11,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -18,55 +19,50 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         isScrolled
-          ? "bg-[#0b0c15]/90 backdrop-blur-md border-white/10"
-          : "bg-transparent border-transparent"
+          ? "bg-[var(--background)]/90 backdrop-blur-md border-b border-[var(--card-border)]"
+          : "bg-transparent border-b border-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center gap-2">
-            <div className="w-8 h-8 bg-cyan-500 rounded-lg flex items-center justify-center">
-              <div className="w-4 h-4 bg-[#0b0c15] rounded-sm transform rotate-45" />
+            <div className="w-6 h-6 bg-blue-600 rounded-sm flex items-center justify-center">
+              <div className="w-3 h-3 bg-white rounded-full" />
             </div>
             <Link
               href="/"
-              className="text-xl font-bold tracking-tight text-white"
+              className="text-lg font-bold tracking-tight text-[var(--foreground)]"
             >
-              PulseFlow
+              Eventify
             </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <div className="relative group">
-              <button className="flex items-center gap-1 text-gray-300 hover:text-white transition-colors text-sm font-medium">
-                Product <ChevronDown className="w-4 h-4" />
-              </button>
-            </div>
+            <Link
+              href="/product"
+              className="text-sm font-medium text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
+            >
+              Product
+            </Link>
             <Link
               href="/solutions"
-              className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
+              className="text-sm font-medium text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
             >
               Solutions
             </Link>
             <Link
-              href="/customers"
-              className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
-            >
-              Customers
-            </Link>
-            <Link
               href="/docs"
-              className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
+              className="text-sm font-medium text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
             >
-              Docs
+              Documentation
             </Link>
             <Link
               href="/pricing"
-              className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
+              className="text-sm font-medium text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
             >
               Pricing
             </Link>
@@ -74,22 +70,31 @@ export default function Navbar() {
 
           {/* Auth Buttons */}
           <div className="hidden md:flex items-center space-x-4">
+            <ThemeToggle />
+            <Link
+              href="https://github.com/eventify"
+              target="_blank"
+              className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
+            >
+              <Github className="w-5 h-5" />
+            </Link>
             <Link
               href="/login"
-              className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
+              className="text-sm font-medium text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
             >
               Sign in
             </Link>
-            <button className="bg-white text-black hover:bg-gray-200 px-5 py-2.5 rounded-full text-sm font-semibold transition-all">
-              Start Building
+            <button className="btn-primary px-4 py-2 text-sm">
+              Start for free
             </button>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center gap-4">
+            <ThemeToggle />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-gray-300 hover:text-white p-2"
+              className="text-[var(--muted)] hover:text-[var(--foreground)] p-2"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -99,35 +104,41 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-[#0b0c15] border-b border-white/10">
+        <div className="md:hidden bg-[var(--background)] border-b border-[var(--card-border)]">
           <div className="px-4 pt-2 pb-6 space-y-2">
             <Link
               href="/product"
-              className="block py-3 text-base font-medium text-gray-300 hover:text-white border-b border-white/5"
+              className="block py-3 text-base font-medium text-[var(--muted)] hover:text-[var(--foreground)] border-b border-[var(--card-border)]"
             >
               Product
             </Link>
             <Link
               href="/solutions"
-              className="block py-3 text-base font-medium text-gray-300 hover:text-white border-b border-white/5"
+              className="block py-3 text-base font-medium text-[var(--muted)] hover:text-[var(--foreground)] border-b border-[var(--card-border)]"
             >
               Solutions
             </Link>
             <Link
+              href="/docs"
+              className="block py-3 text-base font-medium text-[var(--muted)] hover:text-[var(--foreground)] border-b border-[var(--card-border)]"
+            >
+              Documentation
+            </Link>
+            <Link
               href="/pricing"
-              className="block py-3 text-base font-medium text-gray-300 hover:text-white border-b border-white/5"
+              className="block py-3 text-base font-medium text-[var(--muted)] hover:text-[var(--foreground)] border-b border-[var(--card-border)]"
             >
               Pricing
             </Link>
             <div className="pt-6 flex flex-col gap-4">
               <Link
                 href="/login"
-                className="text-center py-3 text-gray-300 hover:text-white font-medium"
+                className="text-center py-3 text-[var(--muted)] hover:text-[var(--foreground)] font-medium"
               >
                 Sign in
               </Link>
-              <button className="w-full bg-white text-black py-3 rounded-full font-semibold">
-                Start Building
+              <button className="w-full btn-primary py-3">
+                Start for free
               </button>
             </div>
           </div>
