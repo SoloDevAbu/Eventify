@@ -1,0 +1,23 @@
+{
+  "name": "@eventify/sdk",
+  "version": "0.1.0",
+  "description": "Track user events like signups, logins, etc. to track user behavior",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "author": "Abu Bakkar Siddique",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^24.10.1"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  }
+}
