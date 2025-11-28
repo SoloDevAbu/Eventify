@@ -1,4 +1,4 @@
-import { authSigninEventSchema, authSignupEventSchema } from "@eventify/types";
+import { signinEventSchema, signupEventSchema } from "@eventify/types";
 import { Request, Response } from "express";
 
 export const trackSignup = (req: Request, res: Response) => {
@@ -8,7 +8,7 @@ export const trackSignup = (req: Request, res: Response) => {
     return res.status(400).json({ message: "Event is required" });
   }
 
-  const parsedEvent = authSignupEventSchema.safeParse(event);
+  const parsedEvent = signupEventSchema.safeParse(event);
 
   if (!parsedEvent.success) {
     return res.status(400).json({ message: "Invalid event" });
@@ -24,7 +24,7 @@ export const trackSignin = (req: Request, res: Response) => {
     return res.status(400).json({ message: "Event is required" });
   }
 
-  const parsedEvent = authSigninEventSchema.safeParse(event);
+  const parsedEvent = signinEventSchema.safeParse(event);
 
   if (!parsedEvent.success) {
     return res.status(400).json({ message: "Invalid event" });
