@@ -1,7 +1,7 @@
-import { trackSignin, trackSignup } from "./auth-controller";
-import { trackButtonClick } from "./button-controller";
-import { trackGroupEvent } from "./group-controller";
-import { trackPageView } from "./page-controller";
+import { trackSignin, trackSignup } from "./auth-track-controller";
+import { trackButtonClick } from "./button-track-controller";
+import { trackGroupEvent } from "./group-track-controller";
+import { trackPageView } from "./page-track-controller";
 
 export {
   trackSignin,

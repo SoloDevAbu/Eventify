@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@eventify/db": "*",
+    "@eventify/types": "*",
     "@types/express": "^5.0.5",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
