@@ -1,5 +1,5 @@
 {
-  "name": "track-be",
+  "name": "@eventify/track-be",
   "version": "1.0.0",
   "description": "Tack backend to track all the incoming events",
   "main": "./dist/server.js",
@@ -11,6 +11,8 @@
   "dependencies": {
     "@eventify/db": "*",
     "@eventify/types": "*",
+    "@eventify/kafka": "*",
+    "@eventify/utils": "*",
     "@types/express": "^5.0.5",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
