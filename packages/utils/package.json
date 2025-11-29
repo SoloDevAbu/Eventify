@@ -1,0 +1,16 @@
+{
+  "name": "@eventify/utils",
+  "version": "1.0.0",
+  "main": "./src/index.ts",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "tsc"
+  },
+  "exports": {
+    "./*": "./src/*"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3"
+  }
+}
