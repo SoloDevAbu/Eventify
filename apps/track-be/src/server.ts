@@ -2,6 +2,9 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
+
+import mainRouteV1 from "./routes/main-route-v1";
+
 dotenv.config();
 
 const app = express();
@@ -16,7 +19,7 @@ app.use(
   })
 );
 
-app.use("/api/v1");
+app.use("/api/v1", mainRouteV1);
 
 app.listen(process.env.PORT || 5000, () => {
   console.log(`Server is running on port ${process.env.PORT}`);
