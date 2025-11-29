@@ -18,22 +18,12 @@ export enum AuthMethod {
   DISCORD = "discord",
 }
 
+const authMethodEnum = z.nativeEnum(AuthMethod);
+
 export const signupEventSchema = baseEventSchema.extend({
   name: z.literal(AuthEventName.USER_SIGNUP),
   properties: z.object({
-    method: z
-      .enum([
-        "email",
-        "phone",
-        "google",
-        "facebook",
-        "apple",
-        "github",
-        "twitter",
-        "linkedin",
-        "discord",
-      ])
-      .optional(),
+    method: authMethodEnum.optional(),
     source: z.string().optional(),
   }),
 });
@@ -43,19 +33,7 @@ export type SignupEvent = z.infer<typeof signupEventSchema>;
 export const signinEventSchema = baseEventSchema.extend({
   name: z.literal(AuthEventName.USER_SIGNIN),
   properties: z.object({
-    method: z
-      .enum([
-        "email",
-        "phone",
-        "google",
-        "facebook",
-        "apple",
-        "github",
-        "twitter",
-        "linkedin",
-        "discord",
-      ])
-      .optional(),
+    method: authMethodEnum.optional(),
     success: z.boolean(),
   }),
 });
